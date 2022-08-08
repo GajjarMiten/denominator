@@ -1,0 +1,23 @@
+{
+    "name": "denominator",
+    "version": "1.0.0",
+    "description": "cli for generating component for react",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node src/index.js"
+    },
+    "keywords": [
+        "cli"
+    ],
+    "bin": {
+        "damn": "./src/index.js"
+    },
+    "author": "Miten Gajjar",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "commander": "^9.4.0",
+        "prettier": "^2.7.1"
+    }
+}

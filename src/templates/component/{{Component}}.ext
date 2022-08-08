@@ -1,0 +1,8 @@
+import React from "react";
+import * as Styles from "./{{Component}}.style.ext";
+
+const {{Component}} = () => {
+    return <Styles.Wrapper>{{Component}}</Styles.Wrapper>;
+};
+
+export default {{Component}};

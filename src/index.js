@@ -11,8 +11,8 @@ program.version(version);
 
 program
     .option("-c --component <name>", "create a component")
-    .option("-ext --extension <ext>", "create a typescript component")
-    .action(function (args, flags) {
+    .option("-ext --extension <ext>", "adds an extension for the file")
+    .action((args, flags) => {
         createComponent(args.component, {
             extension: args.extension,
         });

@@ -1,6 +1,6 @@
 const os = require("os");
 
-const CONFIG_NAME = "denominator.config.js";
+const CONFIG_NAME = "denominator.config.json";
 
 const requireOptional = (filePath) => {
     try {
@@ -20,12 +20,11 @@ module.exports.getConfig = () => {
         type: "functional",
         dir: "src/components",
         extension: "js",
-        templateDir: "src/templates/component",
     };
 
-    const globalOverrides = requireOptional(`/${home}/${CONFIG_NAME}`);
+    const globalOverrides = requireOptional(`${home}\\${CONFIG_NAME}`);
 
-    const localOverrides = requireOptional(`/${pwd}/${CONFIG_NAME}`);
+    const localOverrides = requireOptional(`${pwd}\\${CONFIG_NAME}`);
 
     const config = {
         ...defaults,

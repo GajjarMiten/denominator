@@ -4,26 +4,24 @@ const FileService = require("../services/file.service");
 const { getConfig } = require("../utils");
 const { capitalize } = require("../utils/stringUtils");
 
+const path = require("path");
+
 const config = getConfig();
 
-module.exports.createComponent = async (
-    componentName,
-    { extension, type } = {
-        extension: config.extension,
-        type: config.type,
-    }
-) => {
+module.exports.createComponent = async (componentName, extension, type) => {
     try {
         throwIf((r) => !r, "Component name is required")(componentName);
+        const templateDir = path.join(__dirname, "../templates/component");
 
         componentName = capitalize(componentName);
 
+        extension = extension || config.extension;
+        type = type || config.type;
+
         const componentDir = config.dir;
 
-        const files = FileService.readDir(config.templateDir);
-
+        const files = FileService.readDir(templateDir);
         FileService.createDirIfNotExists(componentDir);
-
         for (let file of files) {
             let newFile = file;
             newFile = file.replace("{{Component}}", componentName);
@@ -31,9 +29,7 @@ module.exports.createComponent = async (
 
             const filePath = `${componentDir}/${componentName}/${newFile}`;
 
-            const fileContent = FileService.readFile(
-                `${config.templateDir}/${file}`
-            );
+            const fileContent = FileService.readFile(`${templateDir}/${file}`);
             const newFileContent = fileContent.replace(
                 /{{Component}}/g,
                 componentName

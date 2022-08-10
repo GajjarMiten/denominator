@@ -13,8 +13,6 @@ program
     .option("-c --component <name>", "create a component")
     .option("-ext --extension <ext>", "adds an extension for the file")
     .action((args, flags) => {
-        createComponent(args.component, {
-            extension: args.extension,
-        });
+        createComponent(args.component, args.extension);
     });
 program.parse();

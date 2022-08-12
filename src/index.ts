@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { Command } = require("commander");
+import { Command } from "commander";
 
-const { version } = require("../package.json");
-const { createComponent } = require("./controllers/component.controller");
+import { version } from "../package.json";
+import { createComponent } from "controllers/component.controller";
 
 const program = new Command();
 

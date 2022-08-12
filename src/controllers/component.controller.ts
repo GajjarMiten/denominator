@@ -1,16 +1,20 @@
-const { throwIf } = require("../utils/error");
-const { logError } = require("../utils/logger");
-const FileService = require("../services/file.service");
-const { getConfig } = require("../utils");
-const { capitalize } = require("../utils/stringUtils");
+import FileService from "services/file.service";
+import { getConfig, capitalize, throwIf, logError } from "utils";
+import type { Error } from "utils";
 
-const path = require("path");
+import path from "path";
 
 const config = getConfig();
 
-module.exports.createComponent = async (componentName, extension, type) => {
+export const createComponent = async (
+    componentName: string,
+    extension: string,
+    type: string = "component"
+): Promise<void> => {
     try {
-        throwIf((r) => !r, "Component name is required")(componentName);
+        throwIf((r: string) => !r, {
+            message: "Component name is required",
+        } as Error)(componentName);
         const templateDir = path.join(__dirname, "../templates/component");
 
         componentName = capitalize(componentName);
@@ -21,8 +25,10 @@ module.exports.createComponent = async (componentName, extension, type) => {
         const componentDir = config.dir;
 
         const files = FileService.readDir(templateDir);
+
         FileService.createDirIfNotExists(componentDir);
-        for (let file of files) {
+
+        for (let file of files!) {
             let newFile = file;
             newFile = file.replace("{{Component}}", componentName);
             newFile = newFile.replace("ext", extension);
@@ -30,7 +36,7 @@ module.exports.createComponent = async (componentName, extension, type) => {
             const filePath = `${componentDir}/${componentName}/${newFile}`;
 
             const fileContent = FileService.readFile(`${templateDir}/${file}`);
-            const newFileContent = fileContent.replace(
+            const newFileContent = fileContent!.replace(
                 /{{Component}}/g,
                 componentName
             );

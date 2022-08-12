@@ -1,19 +1,19 @@
-const os = require("os");
+import { homedir } from "os";
 
 const CONFIG_NAME = "denominator.config.json";
 
-const requireOptional = (filePath) => {
+const requireOptional = (filePath: string) => {
     try {
         return require(filePath);
-    } catch (e) {
+    } catch (e: any) {
         if (e.code !== "MODULE_NOT_FOUND") {
             throw e;
         }
     }
 };
 
-module.exports.getConfig = () => {
-    const home = os.homedir();
+export function getConfig() {
+    const home = homedir();
     const pwd = process.cwd();
 
     const defaults = {
@@ -30,7 +30,11 @@ module.exports.getConfig = () => {
         ...defaults,
         ...globalOverrides,
         ...localOverrides,
-    };
+    } as const;
 
     return config;
+}
+
+export default {
+    getConfig,
 };

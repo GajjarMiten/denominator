@@ -1,10 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import prettier from "prettier";
+import fs from "fs";
+import path from "path";
 
-const prettier = require("prettier");
-
-
-module.exports.buildPrettifier = (prettierConfig) => {
+export const buildPrettifier = (prettierConfig: any) => {
     let config = prettierConfig;
 
     if (!config) {
@@ -30,7 +28,7 @@ module.exports.buildPrettifier = (prettierConfig) => {
         }
     }
 
-    return (text) => {
+    return (text: any) => {
         return prettier.format(text, config);
     };
 };

@@ -1,6 +1,8 @@
 import fs from "fs";
+
 import path from "path";
-import { throwIf, Error, throwError } from "utils";
+
+import { throwIf, Error, throwError } from "../utils";
 
 export const createDirIfNotExists = (dirPath: string) => {
     try {

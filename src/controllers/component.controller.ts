@@ -1,8 +1,8 @@
-import FileService from "services/file.service";
-import { getConfig, capitalize, throwIf, logError } from "utils";
-import type { Error } from "utils";
-
 import path from "path";
+
+import type { Error } from "../utils";
+import { getConfig, capitalize, throwIf, logError } from "../utils";
+import FileService from "../services/file.service";
 
 const config = getConfig();
 

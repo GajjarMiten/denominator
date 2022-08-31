@@ -3,7 +3,8 @@
 import { Command } from "commander";
 
 import { version } from "../package.json";
-import { createComponent } from "controllers/component.controller";
+
+import { createComponent } from "./controllers/component.controller";
 
 const program = new Command();
 

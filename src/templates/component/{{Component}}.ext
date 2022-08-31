@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styles from "./{{Component}}.style.ext";
+import * as Styles from "./{{Component}}.style.ts";
 
 const {{Component}} = () => {
     return <Styles.Wrapper>{{Component}}</Styles.Wrapper>;

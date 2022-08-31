@@ -30,8 +30,13 @@ export const createComponent = async (
 
         for (let file of files!) {
             let newFile = file;
+            let names = newFile.split(".");
             newFile = file.replace("{{Component}}", componentName);
-            newFile = newFile.replace("ext", extension);
+            if (names.includes("style")) {
+                newFile = newFile.replace("ext", extension.substring(0, 2));
+            } else {
+                newFile = newFile.replace("ext", extension);
+            }
 
             const filePath = `${componentDir}/${componentName}/${newFile}`;
 

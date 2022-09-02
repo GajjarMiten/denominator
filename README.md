@@ -6,17 +6,22 @@
 
 A wannabe user-friendly and customizable cli for manifesting React components.
 
-[Why?](#why) •
-[Getting started](#getting-started) •
-[Configuration](#configuration) • [Buid](#build)
+[Why?](#why?-💡) •
+[Getting started](#getting-started-🚥) •
+[Configuration](#configuration-⚙️) • [Usage](#usage-🤔)
+
+[Development](#development-🛠️) • [Roadmap](#roadmap-🗺️) • [Credits](#credits-🤝)
 
 <!-- [Integrations](#third-party-integrations) -->
-
 </div>
+
+<hr/>
 
 ## Why? 💡
 
 In a nutshell I wanted a tool that saves me from doing repetitive task of creating boilerplate for components. This is a npm package for adding new React components in your project. Pretty straight forward to use and requires no configurations, completely configurable, though 😵‍💫.
+
+<hr/>
 
 ## Getting started 🚥
 
@@ -31,7 +36,6 @@ $ npm i -g denominator
 ```
 
 `cd` into your project's directory, and try creating a new component:
-
 
 ```bash
 $ damn -c Button -ext js
@@ -69,5 +73,24 @@ export const Wrapper = styled.div``;
 > <br />
 
 <br/>
+<hr/>
 
 ## Configuration ⚙️
+
+<hr/>
+
+## Usage 🤔
+
+<hr/>
+
+## Development 🛠️
+
+<hr/>
+
+## Roadmap 🗺️
+
+<hr/>
+
+## Credits 🤝
+
+<hr/>
